@@ -8,6 +8,6 @@ public interface IntUser {
 
     String getUsername();
     String getPassword();
-    boolean isValidData();
+    int isValidData();
 
 }

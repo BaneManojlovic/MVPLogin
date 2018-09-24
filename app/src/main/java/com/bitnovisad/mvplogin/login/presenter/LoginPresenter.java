@@ -15,12 +15,16 @@ public class LoginPresenter implements IntLoginPresenter {
     public void onLogin(String username, String password) {
 
         User user = new User(username, password);
-        boolean isLoginSuccess = user.isValidData();
+        int loginCode = user.isValidData();
 
-        if(isLoginSuccess){
-            loginView.onLoginResult("Login Successful!");
+        if(loginCode == 0){
+            loginView.onLoginFail("Login Failed! Fields can't be empty!");
+        }else if(loginCode == 1){
+            loginView.onLoginFail("Login Failed! User don't exist!");
+        }else  if (loginCode == 2){
+            loginView.onLoginFail("Login Failed! Passwort to short!");
         }else {
-            loginView.onLoginResult("Login Failed!");
+            loginView.onLoginSuccess("Login Success!");
         }
     }
 }

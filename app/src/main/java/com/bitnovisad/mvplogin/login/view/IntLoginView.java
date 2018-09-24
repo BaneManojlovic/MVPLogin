@@ -1,5 +1,8 @@
 package com.bitnovisad.mvplogin.login.view;
 
 public interface IntLoginView {
-    void onLoginResult(String message);
+
+    void onLoginSuccess(String message);
+    void onLoginFail(String message);
+
 }

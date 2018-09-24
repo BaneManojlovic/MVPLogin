@@ -39,13 +39,19 @@ public class LoginFragment extends Fragment implements IntLoginView {
             @Override
             public void onClick(View v) {
                 loginPresenter.onLogin(edtUsername.getText().toString(), edtPassword.getText().toString());
+                //loginPresenter.handleLogin(edtUsername.getText().toString(), edtPassword.getText().toString());
             }
         });
         return v;
     }
 
     @Override
-    public void onLoginResult(String message) {
+    public void onLoginSuccess(String message) {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onLoginFail(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 }
